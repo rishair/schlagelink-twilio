@@ -8,6 +8,18 @@ foreach(glob("src/helpers/*") as $file) {
 	include $file;
 }
 
+// Get/set schlage username
+function schlage_username($u = false) { 
+	if (!$u) return redis()->get('schlage:username');
+	redis()->set('schlage:username', $u);
+}
+
+// Get/set schlage password
+function schlage_password($p = false) {
+	if (!$p) return redis()->get('schlage:password');
+	redis()->set('schlage:password', $p);
+}
+
 // Extract phone number
 function number	($phone)		{ return substr(preg_replace('/[^0-9]/', '', $phone), -10); }
 
