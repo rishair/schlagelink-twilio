@@ -423,7 +423,7 @@ class CURL{
 				$this->HandleError($this->GetErrorNo());
 			}
 			$info = $this->GetInfo();
-			$this->StatusCode = isset($info[CURLINFO_HTTP_CODE]) ? $info[CURLINFO_HTTP_CODE] : 0;
+			$this->StatusCode = isset($info['http_code']) ? $info['http_code'] : 0;
 			if ($d){
 				if ($this->Header) {
 					$headers = array();
